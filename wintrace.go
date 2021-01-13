@@ -100,6 +100,7 @@ func Trace(ipStr string) ([]TranceResponse, error) {
 	if syscall.Handle(fd) == syscall.InvalidHandle {
 		return nil, errors.New(fmt.Sprintf("Failed to create handle:% s", err.Error()))
 	}
+	//TODO:: fix sping forever while waiting on a response
 	for i := 0; i <= maxTTL; i++ {
 		requestOptions := IP_OPTION_INFORMATION{
 			Ttl: uint8(i),
